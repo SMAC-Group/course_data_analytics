@@ -1,25 +1,25 @@
 {
-    "courseId": "course-starter-r",
-    "title": "My cool online course",
+    "courseId": "course-data-analytics",
+    "title": "Introduction to Data Analytics",
     "slogan": "A free online course",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat semper urna, in accumsan sapien dui ac mi. Pellentesque felis lorem, semper nec velit nec, consectetur placerat enim.",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat semper urna.",
-    "siteUrl": "https://course-starter-r.netlify.com",
+    "description": "This course will presents an Introduction to Data Analytics with R",
+    "bio": "Stéphane Guerrier is an Assistant Professor of Statistics and Data Science at the University of Geneva. Lionel Voirol, Yuming Zhang, Wenfei Chu and Jun Wu are PhD Candidates in Statistics at the University of Geneva.",
+    "siteUrl": "https://intro-to-analytics.netlify.com/",
     "twitter": "spacy_io",
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
-    "testTemplate": "${test}\ntryCatch({\n\n    test()\n}, error = function(e) {\n    cat(paste(e[1]))\n})",
+    "testTemplate": "success <- function(text) {\n    cat(paste(\"\\033[32m\", text, \"\\033[0m\", sep = \"\"))\n}\n\n.solution <- \"${solutionEscaped}\"\n\n${solution}\n\n${test}\ntryCatch({\n    test()\n}, error = function(e) {\n    cat(paste(\"\\033[31m\", e[1], \"\\033[0m\", sep = \"\"))\n})",
     "juniper": {
-        "repo": "ines/course-starter-python",
+        "repo": "SMAC-Group/course_data_analytics",
         "branch": "binder",
         "lang": "r",
-        "kernelType": "r",
+        "kernelType": "ir",
         "debug": false
     },
     "showProfileImage": true,
     "footerLinks": [
-        { "text": "Website", "url": "https://spacy.io" },
-        { "text": "Source", "url": "https://github.com/ines/course-starter-python" },
-        { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-python" }
+        { "text": "Website", "url": "https://data-analytics-lab.net/" },
+        { "text": "Source", "url": "https://github.com/SMAC-Group/course_data_analytics" },
+        { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-r" }
     ],
     "theme": "#de7878"
 }
