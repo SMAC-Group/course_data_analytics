@@ -1,4 +1,4 @@
 install.packages("dplyr")
 install.packages("remotes")
-install.packages("palmerpenguins")
-remotes::install_github("SMAC-Group/idar")
+remotes::install_github("allisonhorst/palmerpenguins")
+remotes::install_github("SMAC-Group/idar@main")
