@@ -1,0 +1,102 @@
+# script aggregate dataset for master thesis 
+
+# clean ws
+rm(list = ls())
+
+# load libraries
+library(xlsx)
+library(dplyr)
+
+# load markers
+df_markers = read.csv("data/cortisol_insulin_markers.csv")
+colnames(df_markers)
+#retreat colnames
+colnames(df_markers)[4:7] = df_markers[1, 4:7]
+colnames(df_markers)
+df_markers = df_markers[-1,]
+df_markers = janitor::clean_names(df_markers)
+unique(df_markers$group)
+
+# load proteins
+df_proteins = read.csv("data/proteomics_animalnumbers_JV_A.csv")
+df_proteins = janitor::clean_names(df_proteins)
+df_proteins = df_proteins %>% rename(animal_no = animal_id)
+df_proteins = df_proteins %>% mutate(animal_no = as.numeric(animal_no))
+
+# load hormones
+df_hormones = read.xlsx2("data/New2020_Testosterone_LH_Cortisol_ACTH_CRH 2.xlsx", sheetIndex = 1)
+df_hormones = janitor::clean_names(df_hormones)
+
+# load markers 2 may have overlapp with df_markers
+df_markers_2 = read.xlsx2("data/USDA_mainstudy.xlsx", sheetIndex = 1)
+df_markers_2 = janitor::clean_names(df_markers_2)
+df_markers_2 = df_markers_2 %>% rename(animal_no = pig)
+df_markers_2 = df_markers_2 %>% mutate(animal_no = as.numeric(animal_no))
+
+# load distal 
+df_distal = read.xlsx2("data/distal.xlsx", sheetIndex = 1)
+df_distal = janitor::clean_names(df_distal)
+
+# load fecal
+df_fecal = read.xlsx2("data/fecal.xlsx", sheetIndex = 1)
+df_fecal = janitor::clean_names(df_fecal)
+
+# load colon metabolomics
+df_colon_metabolomics = read.xlsx2("data/Main study_colon_metabolomics_CSU.xlsx", sheetIndex = 1)
+
+# load serum metabolomics
+df_serum_metabolomics = read.xlsx2("data/Mainstudy_serum_metabolomics_CSU.xlsx", sheetIndex = 1)
+
+# select variables in each df
+# grepl("", x = colnames(df_colon_metabolomics))
+
+
+# samir 
+# quels est le ffet des regimes sur le rapport fimicutes barceroides dans colon distal et selles / fecal
+# correlation entre alteration du rapport 
+# markers 2 pigs et group, fecal distal et df_hormones ] "Urine.Cortisol..pg.mg.creatinine" "Serum.ACTH..pg.mL."               "Serum.CRH..pg.mL."    
+# et marker 1 insulin et homer
+
+df1 = df_markers_2 %>% select(animal_no, group)
+df2 = df_markers %>% select(animal_no, insulin_ng_ml, homa_ir)
+df3 = df_hormones %>% select(animal_no, urine_cortisol_pg_mg_creatinine, serum_acth_pg_m_l)
+df3 = df3 %>% mutate(animal_no = as.numeric(animal_no))
+
+# rename id
+df_fecal = df_fecal %>% rename(animal_no = pig_number)
+df_fecal = df_fecal %>% mutate(animal_no = as.numeric(animal_no))
+df_distal = df_distal %>% rename(animal_no = subject_1)
+df_distal = df_distal %>% mutate(animal_no = as.numeric(animal_no))
+
+# merge
+df_samir_1 = full_join(df1, df2, by ="animal_no")
+df_samir_2 = full_join(df_samir_1, df3, by ="animal_no")
+df_samir_3 = full_join(df_samir_2, df_fecal, by ="animal_no")
+df_samy = full_join(df_samir_3, df_distal, by ="animal_no")
+
+# check if group are identical
+df_samy %>% select(animal_no, group.x, group.y)
+
+# youssef
+# tout les biomarkers de markers 2 et marker 1
+df_youssef = full_join(df_markers, df_markers_2, by="animal_no")
+
+# yizi
+# biomarker 1 et biomarker 2 avec df proteins
+df_ziyi_1 =  full_join(df_markers, df_markers_2, by ="animal_no")
+df_ziyi = left_join(df_ziyi_1, df_proteins, by ="animal_no")
+colnames(df_ziyi)
+     
+# identify rows which are completely empty
+
+
+# save all three datasets
+save(df_samy, file = "data/df_samy.rda")
+save(df_youssef, file = "data/df_youssef.rda")
+save(df_ziyi, file = "data/df_ziyi.rda")
+
+# try load inspect
+rm(list=ls())
+load("data/df_samir.rda")
+load("data/df_youssef.rda")
+load("data/df_ziyi.rda")

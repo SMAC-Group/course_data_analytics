@@ -1,0 +1,14 @@
+# question 1
+
+set.seed(123)
+total_n = 100
+n_normal = 85
+x1 = rnorm(n=total_n, 15,5)
+set.seed(123)
+x2 = c(rchisq(n=n_normal, df =20), rnorm((total_n - n_normal), 45, 12))
+boxplot(x1,x2, names=c("Treatment", "Control"))
+
+# queston 2
+set.seed(123)
+x=rnorm(50)
+t.test(x)
