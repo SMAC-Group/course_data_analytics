@@ -19,7 +19,7 @@ Remember to we are interested in testing if the participants are losing weight, 
 
 ```
 
-## specify useful message in QCM
+## Specify useful message in QCM
 ``` 
 Based on the test you performed and considering a type I error (i.e. "alpha") of 5%, what can you conclude:
 
