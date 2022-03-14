@@ -1,5 +1,37 @@
 # Online course starter: R
 
+# FAQ
+
+## Footer in ` src/components/layout.js`
+
+## Change size logo in `src/styles/index.module.sass`
+
+## Specify bio in `meta.json`
+
+## Specify Hint in codeblock
+
+``` 
+<codeblock id="chap1_diet_3">
+
+Remember to we are interested in testing if the participants are losing weight, so we should use `alternative = "greater"` 
+
+</codeblock>
+
+```
+
+## specify useful message in QCM
+``` 
+Based on the test you performed and considering a type I error (i.e. "alpha") of 5%, what can you conclude:
+
+<choice id="chap1_diet_2">
+<opt text="The test shows that it is sure that Diet A significantly reduces the weight of the participants." > Sadly, we can never be sure with statistical methods... </opt>
+<opt text="We don't really know..."> In some sense, this is correct... 😉  However, the statistical method you selected indicates that it is very likely that the Diet is working. </opt>
+<opt text="We can reject the null hypothesis at the significance level of 5% and conclude that Diet A significantly reduces the weight of the participants." correct = "true"> Yay! 👍 </opt>
+<opt text="We cannot reject the null hypothesis at the significance level of 5%."> Actually, in this case the p-value is smaller that 5% as it is 0.00101%, so we can reject the null.</opt>
+</choice>
+
+``` 
+
 This is a starter repo based on the
 [course framework](https://github.com/ines/spacy-course) I developed for my
 [spaCy course](https://course.spacy.io). The front-end is powered by
