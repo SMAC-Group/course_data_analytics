@@ -2,6 +2,14 @@
 
 # FAQ
 
+## Course description `src/components/layout.js`
+
+## Coding exercises in `exercises`
+
+## Slides in `slides` 
+
+## Chapters in `chapters` 
+
 ## Footer in ` src/components/layout.js`
 
 ## Change size logo in `src/styles/index.module.sass`
