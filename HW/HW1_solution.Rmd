@@ -8,7 +8,11 @@ In this homework, we want to assess the validity of several claims based on the 
 ```{r}
 library(idarps)
 data(covid)
+head(covid)
+```
 
+
+```{r}
 # SpO2
 spo2 = covid$spo2
 

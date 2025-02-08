@@ -1,0 +1,23 @@
+---
+title: "demo_rmd"
+author: "Lionel"
+date: "2024-03-19"
+output: html_document
+---
+
+# Analyse jeux de donnée "diet"
+## Sous-titre
+
+
+ceci est du texte
+
+```{r}
+# Import data comments!!
+library(idarps) 
+data(diet)
+
+# new comment
+head(diet)
+boxplot(diet$initial.weight)
+```
+
