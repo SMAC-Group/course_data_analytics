@@ -116,6 +116,7 @@ devtools::install_github("https://github.com/SMAC-Group/idarps")
 
 You should see something like:
 
+
 ```out
 ...
 ** testing if installed package can be loaded from final location
