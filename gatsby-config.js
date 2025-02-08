@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
     siteMetadata: meta,
     plugins: [
-  `gatsby-plugin-netlify`,
+
           {
             resolve: `gatsby-transformer-remark`,
             options: {
