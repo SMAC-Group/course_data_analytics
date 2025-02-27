@@ -708,23 +708,4 @@ Besides using the base `R`, there are many existing graphics libraries such as [
 
 
 
-<exercise id="7" title="Using the AI helper">
 
-The objective of this course is not to develop your ability to script `R` code. Instead, this course aims to introduce you the statistical methods typically used in the context of pharmaceutical sciences, and to allow you to learn which methods to use depending on your research questions and data. Therefore, we have developed a web application which allows you to use the latest advances in Artificial Intelligence (AI) in order to automatically generate `R` code according to the data analysis you want to produce. 
-
-More precisely, this application is based on the latest [openAI](https://openai.com/) [deep learning models](https://platform.openai.com/docs/models/overview). It allows you to describe statistical procedures in natural language (English or French), and based on your instructions, it will generate `R` code to conduct the described analysis. Please note that there is no guarantee for the accuracy of the generated code, but we have observed that the generated code is generally error free and can successfully produce the described analysis. We recommend you to use this application to avoid spending most of your time learning to write in `R`, but instead to focus on understanding the use of different statistical methods.
-
-You can access the application directly [here](https://data-analytics-lab.shinyapps.io/ai-helper-pharma).
-
-Below is a GIF illustrating the use of the `Data Analysis AI Helper` web application:
-
-<center>
-
-![](gif_usage_helper.gif)
-
-</center>
-
-
-
-
-</exercise>
